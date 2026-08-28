@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "Home - Gift of the Givers";
+}
+
+<!-- Hero Section -->
+<div class="hero">
+    <h1>Be a Beacon of Hope</h1>
+    <p class="lead">Support disaster relief in South Africa and beyond.</p>
+    <a asp-controller="Donations" asp-action="Create" class="btn btn-primary btn-lg mt-3">Donate Now</a>
+    <a asp-controller="VolunteerInterests" asp-action="Create" class="btn btn-outline-light btn-lg mt-3 ms-2">Volunteer</a>
+</div>
+
+<!-- Mission Statement -->
+<div class="row align-items-center mb-5">
+    <div class="col-md-8">
+        <h2>Who We Are</h2>
+        <p class="lead">
+            The Gift of the Givers Foundation is the largest disaster relief organisation in Africa.
+            We provide humanitarian aid to communities affected by natural disasters, conflict, and poverty.
+        </p>
+        <p>
+            Since 1992, we have delivered over R3 billion in aid, serving millions of people across
+            South Africa and 42 other countries. Our work is driven by compassion, efficiency, and
+            the unwavering belief that every life matters.
+        </p>
+        <a asp-controller="Home" asp-action="About" class="btn btn-primary">Learn More</a>
+    </div>
+    <div class="col-md-4 text-center">
+        <img src="~/images/hero-placeholder.jpg" alt="Gift of the Givers in action" class="img-fluid rounded shadow" />
+    </div>
+</div>
+
+<!-- Key Stats -->
+<div class="row text-center mb-5">
+    <div class="col-md-3 col-6">
+        <div class="card p-3">
+            <h3 style="color: var(--primary-green); font-size: 2.5rem;">30+</h3>
+            <p>Years of Service</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-6">
+        <div class="card p-3">
+            <h3 style="color: var(--primary-green); font-size: 2.5rem;">42</h3>
+            <p>Countries Served</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-6">
+        <div class="card p-3">
+            <h3 style="color: var(--primary-green); font-size: 2.5rem;">R3B+</h3>
+            <p>Aid Delivered</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-6">
+        <div class="card p-3">
+            <h3 style="color: var(--primary-green); font-size: 2.5rem;">1000+</h3>
+            <p>Active Volunteers</p>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Relief Projects (placeholder) -->
+<h2 class="text-center mb-4">Our Recent Relief Efforts</h2>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <img src="~/images/flood-relief.jpg" class="card-img-top" alt="Flood Relief" />
+            <div class="card-body">
+                <h5 class="card-title">KZN Flood Response</h5>
+                <p class="card-text">Emergency food, water, and shelter provided to over 10,000 families affected by devastating floods in KwaZulu-Natal.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <img src="~/images/medical-aid.jpg" class="card-img-top" alt="Medical Aid" />
+            <div class="card-body">
+                <h5 class="card-title">Medical Outreach</h5>
+                <p class="card-text">Mobile clinics and medical supplies delivered to remote communities with limited access to healthcare services.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <img src="~/images/community-building.jpg" class="card-img-top" alt="Community Rebuilding" />
+            <div class="card-body">
+                <h5 class="card-title">Community Rebuilding</h5>
+                <p class="card-text">Long-term recovery projects rebuilding homes, schools, and infrastructure after natural disasters.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action Banner -->
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="p-5 text-center" style="background: linear-gradient(135deg, var(--primary-green), var(--dark-green)); color: white; border-radius: 12px;">
+            <h2 style="color: white;">Make a Difference Today</h2>
+            <p class="lead">Your support saves lives. Join us in bringing hope to those in need.</p>
+            <a asp-controller="Donations" asp-action="Create" class="btn btn-gold btn-lg">Donate Now</a>
+            <a asp-controller="VolunteerInterests" asp-action="Create" class="btn btn-outline-light btn-lg ms-2">Volunteer</a>
+        </div>
+    </div>
+</div>

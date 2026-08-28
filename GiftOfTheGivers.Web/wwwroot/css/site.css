@@ -1,0 +1,190 @@
+/* ===== Gift of the Givers – Green Theme ===== */
+
+:root {
+    --primary-green: #2D6A4F;
+    --dark-green: #1B4332;
+    --light-green: #40916C;
+    --gold: #FFC300;
+    --cream: #F8F3E6;
+}
+
+/* Base */
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    margin-bottom: 0; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+    /* Navbar – green */
+    .navbar {
+    background-color: var(--primary-green) !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.navbar-brand {
+    color: white !important;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+    .navbar-brand img {
+        margin-right: 10px;
+    }
+
+.navbar .nav-link {
+    color: rgba(255,255,255,0.85) !important;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+    .navbar .nav-link:hover {
+        color: var(--gold) !important;
+    }
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary-green);
+    border-color: var(--primary-green);
+}
+
+    .btn-primary:hover {
+        background-color: var(--dark-green);
+        border-color: var(--dark-green);
+    }
+
+.btn-outline-primary {
+    color: var(--primary-green);
+    border-color: var(--primary-green);
+}
+
+    .btn-outline-primary:hover {
+        background-color: var(--primary-green);
+        border-color: var(--primary-green);
+        color: white;
+    }
+
+/* Gold accent button (for calls to action) */
+.btn-gold {
+    background-color: var(--gold);
+    border-color: var(--gold);
+    color: var(--dark-green);
+    font-weight: 700;
+}
+
+    .btn-gold:hover {
+        background-color: #E6B800;
+        border-color: #E6B800;
+        color: var(--dark-green);
+    }
+
+/* Hero */
+.hero {
+    background: linear-gradient(135deg, var(--dark-green), var(--primary-green));
+    color: white;
+    padding: 60px 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+    .hero h1 {
+        font-size: 3rem;
+        font-weight: 800;
+    }
+
+    .hero .btn-primary {
+        background-color: var(--gold);
+        border-color: var(--gold);
+        color: var(--dark-green);
+        font-weight: 700;
+        padding: 12px 40px;
+        border-radius: 50px;
+    }
+
+        .hero .btn-primary:hover {
+            background-color: #E6B800;
+            border-color: #E6B800;
+            transform: scale(1.05);
+        }
+
+/* Cards */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: none;
+}
+
+    .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+.card-header {
+    background-color: var(--primary-green);
+    color: white;
+    font-weight: 600;
+    border-radius: 12px 12px 0 0 !important;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+    color: var(--dark-green);
+    font-weight: 700;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--dark-green);
+    color: rgba(255,255,255,0.8);
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+.footer {
+    flex-shrink: 0;
+    background-color: var(--dark-green);
+    color: rgba(255,255,255,0.8);
+    padding: 20px 0;
+    margin-top: 40px;
+    width: 100%;
+}
+
+        .footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+/* Certificate */
+.certificate {
+    border: 3px solid var(--gold);
+    border-radius: 16px;
+    padding: 30px;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* Donation highlight */
+.donation-highlight {
+    background: var(--cream);
+    padding: 30px;
+    border-radius: 12px;
+    border-left: 6px solid var(--gold);
+}

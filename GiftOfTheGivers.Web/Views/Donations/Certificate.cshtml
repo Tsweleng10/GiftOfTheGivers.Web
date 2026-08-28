@@ -1,0 +1,20 @@
+﻿@model Donation
+
+<h2>Thank You for Your Donation!</h2>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Tax Certificate (Placeholder)</h5>
+        <p><strong>Donor:</strong> @(Model.IsAnonymous ? "Anonymous" : Model.Donor?.FullName ?? Model.Donor?.Email ?? "Registered Donor")</p>
+        <p><strong>Amount:</strong> @Model.Amount @Model.Currency</p>
+        <p><strong>Date:</strong> @Model.DonationDate.ToString("dd MMM yyyy HH:mm")</p>
+        <p><strong>Reference:</strong> #@Model.Id</p>
+        <p><strong>Recurring:</strong> @(Model.IsRecurring ? "Yes (" + Model.RecurrenceFrequency + ")" : "No")</p>
+        @if (Model.ProjectId.HasValue)
+        {
+            <p><strong>Project:</strong> @Model.Project?.Name</p>
+        }
+        <p class="text-muted">This is a provisional receipt. A formal tax certificate will be issued after processing.</p>
+    </div>
+</div>
+<a asp-action="Create" class="btn btn-secondary">Make Another Donation</a>
+<a asp-controller="Home" asp-action="Index" class="btn btn-link">Back to Home</a>
