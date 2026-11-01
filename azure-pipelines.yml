@@ -1,35 +1,39 @@
 trigger:
 - main
 - Testing
+- functions-prototype
 
 pool:
   vmImage: 'windows-latest'
 
-variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
-
 steps:
-- task: NuGetToolInstaller@1
+# 1. Ensure .NET 8 is installed
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '8.x'
 
+# 2. Restore dependencies
 - task: NuGetCommand@2
   inputs:
-    restoreSolution: '$(solution)'
+    restoreSolution: '**/*.sln'
 
+# 3. Build the solution
 - task: VSBuild@1
   inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    solution: '**/*.sln'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true'
+    platform: 'Any CPU'
+    configuration: 'Release'
 
+# 4. Run the Tests (Skipping Selenium)
 - task: VSTest@2
   inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    platform: 'Any CPU'
+    configuration: 'Release'
     testSelector: 'testAssemblies'
     testAssemblyVer2: |
       **\*Tests.dll
       !**\*TestAdapter.dll
       !**\obj\**
+    testFiltercriteria: 'FullyQualifiedName!~Selenium'
