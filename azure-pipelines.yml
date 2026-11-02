@@ -7,33 +7,32 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
-# 1. Ensure .NET 8 is installed
+# 1. Install .NET 8
 - task: UseDotNet@2
+  displayName: 'Install .NET 8 SDK'
   inputs:
     packageType: 'sdk'
     version: '8.x'
 
 # 2. Restore dependencies
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
+  displayName: 'Restore Dependencies'
   inputs:
-    restoreSolution: '**/*.sln'
+    command: 'restore'
+    projects: '**/*.sln'
 
-# 3. Build the solution
-- task: VSBuild@1
+# 3. Build the project
+- task: DotNetCoreCLI@2
+  displayName: 'Build Solution'
   inputs:
-    solution: '**/*.sln'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true'
-    platform: 'Any CPU'
-    configuration: 'Release'
+    command: 'build'
+    projects: '**/*.sln'
+    arguments: '--configuration Release'
 
 # 4. Run the Tests (Skipping Selenium)
-- task: VSTest@2
+- task: DotNetCoreCLI@2
+  displayName: 'Run Unit and Integration Tests'
   inputs:
-    platform: 'Any CPU'
-    configuration: 'Release'
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: |
-      **\*Tests.dll
-      !**\*TestAdapter.dll
-      !**\obj\**
-    testFiltercriteria: 'FullyQualifiedName!~Selenium'
+    command: 'test'
+    projects: '**/*Tests/*.csproj'
+    arguments: '--configuration Release --filter "FullyQualifiedName!~Selenium"'
